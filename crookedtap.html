@@ -1,0 +1,52 @@
+<head>
+  <title>uploader</title>
+</head>
+
+<body>
+
+
+<div class="container">
+	<div class="row">
+		<div class=" col-xs-8">
+
+			<h1>Crooked Tap</h1>
+			{{> form}}
+
+			{{> reviewList}}
+
+		</div>
+	</div>
+</div>
+
+</body>
+
+<template name="reviewList">
+  <h3>Reviews</h3>
+  <ul>
+    {{#each reviews}}
+      	<li>
+    		<input type="button" value="X" class="delete"/> {{reviewRating}}, {{reviewName}}, 
+        <input type="button" value="Edit" class="edit" />
+        {{this.name}}
+        {{this.url}}
+        {{this._id}}
+        <div class="row">
+          <div class="col-sm-4">
+            <img class="img-thumbnail" src="{{this.url store='images'}}" alt="{{name}}">
+          </div>
+        </div>
+    	</li>
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="form">
+  <form class="new_player">
+    <input id="inputFile" type="file" name="files" multiple/>
+    <input id="inputRating" type="text"  placeholder="Rating" />
+    <input id="inputName" type="text" placeholder="Brew name..."/>
+    <input type="submit" class="add" value="Submit" />
+  </form>
+</template>
+
